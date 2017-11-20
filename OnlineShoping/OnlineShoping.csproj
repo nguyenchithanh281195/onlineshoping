@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/473f01e9-e6a0-45e2-ba0f-9aac463b9abb/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/OnlineShoping</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/473f01e9-e6a0-45e2-ba0f-9aac463b9abb/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/OnlineShoping</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -197,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,8 +217,10 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Image\arrow.png" />
     <Content Include="Content\Image\img-sp.png" />
+    <Content Include="Content\Image\profile-photo.jpg" />
     <Content Include="Content\popuo-box.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\templatemo-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -249,12 +253,15 @@
     <Content Include="fonts\opensans-regular.woff2" />
     <Content Include="fonts\opensans-semibold.woff2" />
     <Content Include="fonts\opensans-semibolditalic.woff2" />
+    <None Include="Properties\PublishProfiles\shopingonline - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shopingonline - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\easyResponsiveTabs.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Content\jquery.countdown.css" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\jquery.flexisel.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -265,6 +272,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\templatemo-script.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -301,6 +309,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Product.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\ListProduct.cshtml" />
+    <Content Include="Views\Admin\ProductUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
