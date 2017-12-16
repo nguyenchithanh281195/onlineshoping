@@ -162,3 +162,5 @@ E:\Code\KTPM\DA\onlineshoping\OnlineShoping\bin\Microsoft.Owin.Security.Microsof
 E:\Code\KTPM\DA\onlineshoping\OnlineShoping\obj\Debug\OnlineShoping.csprojResolveAssemblyReference.cache
 E:\Code\KTPM\DA\onlineshoping\OnlineShoping\obj\Debug\OnlineShoping.dll
 E:\Code\KTPM\DA\onlineshoping\OnlineShoping\obj\Debug\OnlineShoping.pdb
+E:\Code\KTPM\DA\onlineshoping\OnlineShoping\bin\OnlineShopingLib.dll
+E:\Code\KTPM\DA\onlineshoping\OnlineShoping\bin\OnlineShopingLib.pdb

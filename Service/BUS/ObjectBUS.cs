@@ -18,5 +18,15 @@ namespace Service.BUS
         {
             return obj.GetParameter(product);
         }
+
+        public DataTable GetAllProducts()
+        {
+            return obj.GetAllProducts();
+        }
+
+        public DataTable GetDataFromTable(string field,string tableName, string condition)
+        {
+            return obj.GetDataFromTable(field,tableName,condition);
+        }
     }
 }

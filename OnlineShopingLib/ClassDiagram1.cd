@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OnlineShopingLib.ClientObject" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClientObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ClientObjectManager" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAAAAAAAAAAAEAAAgIAAAAAAAAAAAA=</HashCode>
+      <FileName>ClientObjectManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.Product" Collapsed="true">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgCIAAYAQAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ProductType" Collapsed="true">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProductType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteCreateObjectRequest" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteCreateObjectRequestBody" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteCreateObjectResponse" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteCreateObjectResponseBody" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.GetAttributeRequest" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.GetAttributeRequestBody" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.GetAttributeResponse" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.GetAttributeResponseBody" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.SetAttributeRequest" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.SetAttributeRequestBody" Collapsed="true">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAACAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.SetAttributeResponse" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.SetAttributeResponseBody" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteExcuteMethodRequest" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteExcuteMethodRequestBody" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAACAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteExcuteMethodResponse" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.RemoteExcuteMethodResponseBody" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnlineShopingLib.ServerObjectManager.WebServiceSoapClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAECAQAAQAAAIAACAAAAAAEAICAAAIgQAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OnlineShopingLib.Manufature" Collapsed="true">
+    <Position X="8.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Manufature.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OnlineShopingLib.ServerObjectManager.WebServiceSoap" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAQAAQAAAAAAAAAAAAAAAICAAAAAQAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OnlineShopingLib.ServerObjectManager.WebServiceSoapChannel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ServerObjectManager\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

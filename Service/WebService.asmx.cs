@@ -9,6 +9,7 @@ using System.Web.Services;
 
 namespace Service
 {
+    
     /// <summary>
     /// Summary description for WebService
     /// </summary>
@@ -26,6 +27,29 @@ namespace Service
             StringWriter sw = new StringWriter();
             DataTable data = bus.GetManufacturer();
             data.TableName = "Manufacturer";
+            data.WriteXml(sw, XmlWriteMode.WriteSchema);
+            string result = sw.ToString();
+            return result;
+        }
+
+        [WebMethod]
+        public string GetAllProducts()
+        {
+            StringWriter sw = new StringWriter();
+            DataTable data = bus.GetAllProducts();
+            data.TableName = "Product";
+            data.WriteXml(sw, XmlWriteMode.WriteSchema);
+            string result = sw.ToString();
+            return result;
+        }
+
+
+        [WebMethod]
+        public string GetDataFromTable(string field,string tableName, string condition)
+        {
+            StringWriter sw = new StringWriter();
+            DataTable data = bus.GetDataFromTable(field,tableName,condition);
+            data.TableName = tableName;
             data.WriteXml(sw, XmlWriteMode.WriteSchema);
             string result = sw.ToString();
             return result;

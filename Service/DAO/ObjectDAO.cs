@@ -18,5 +18,26 @@ namespace Service.DTO
         {
             return null;
         }
+
+        public DataTable GetAllProducts()
+        {
+            return Provider.ExecuteQuery("Select* from Product");
+        }
+
+        public DataTable GetDataFromTable(string field, string tableName, string condition)
+        {
+            
+            if (field == "")
+            {
+                field = "*";
+            }
+            string s = String.Format("Select {0} from {1} where {2})", field, tableName, condition);
+            if (condition == "")
+            {
+                s = String.Format("Select {0} from {1}", field, tableName);
+            }
+
+            return Provider.ExecuteQuery(s);
+        }
     }
 }
