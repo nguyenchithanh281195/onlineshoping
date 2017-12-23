@@ -51,6 +51,13 @@ namespace OnlineShoping.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetData", ReplyAction="*")]
         System.Threading.Tasks.Task<OnlineShoping.ServiceReference1.GetDataResponse> GetDataAsync(OnlineShoping.ServiceReference1.GetDataRequest request);
+        
+        // CODEGEN: Generating message contract since element name tableName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetData", ReplyAction="*")]
+        OnlineShoping.ServiceReference1.SetDataResponse SetData(OnlineShoping.ServiceReference1.SetDataRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetData", ReplyAction="*")]
+        System.Threading.Tasks.Task<OnlineShoping.ServiceReference1.SetDataResponse> SetDataAsync(OnlineShoping.ServiceReference1.SetDataRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -345,6 +352,71 @@ namespace OnlineShoping.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SetDataRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetData", Namespace="http://tempuri.org/", Order=0)]
+        public OnlineShoping.ServiceReference1.SetDataRequestBody Body;
+        
+        public SetDataRequest() {
+        }
+        
+        public SetDataRequest(OnlineShoping.ServiceReference1.SetDataRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SetDataRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int handle;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string tableName;
+        
+        public SetDataRequestBody() {
+        }
+        
+        public SetDataRequestBody(int handle, string tableName) {
+            this.handle = handle;
+            this.tableName = tableName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SetDataResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetDataResponse", Namespace="http://tempuri.org/", Order=0)]
+        public OnlineShoping.ServiceReference1.SetDataResponseBody Body;
+        
+        public SetDataResponse() {
+        }
+        
+        public SetDataResponse(OnlineShoping.ServiceReference1.SetDataResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class SetDataResponseBody {
+        
+        public SetDataResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceSoapChannel : OnlineShoping.ServiceReference1.WebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -480,6 +552,32 @@ namespace OnlineShoping.ServiceReference1 {
             inValue.Body.tableName = tableName;
             inValue.Body.condition = condition;
             return ((OnlineShoping.ServiceReference1.WebServiceSoap)(this)).GetDataAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        OnlineShoping.ServiceReference1.SetDataResponse OnlineShoping.ServiceReference1.WebServiceSoap.SetData(OnlineShoping.ServiceReference1.SetDataRequest request) {
+            return base.Channel.SetData(request);
+        }
+        
+        public void SetData(int handle, string tableName) {
+            OnlineShoping.ServiceReference1.SetDataRequest inValue = new OnlineShoping.ServiceReference1.SetDataRequest();
+            inValue.Body = new OnlineShoping.ServiceReference1.SetDataRequestBody();
+            inValue.Body.handle = handle;
+            inValue.Body.tableName = tableName;
+            OnlineShoping.ServiceReference1.SetDataResponse retVal = ((OnlineShoping.ServiceReference1.WebServiceSoap)(this)).SetData(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<OnlineShoping.ServiceReference1.SetDataResponse> OnlineShoping.ServiceReference1.WebServiceSoap.SetDataAsync(OnlineShoping.ServiceReference1.SetDataRequest request) {
+            return base.Channel.SetDataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<OnlineShoping.ServiceReference1.SetDataResponse> SetDataAsync(int handle, string tableName) {
+            OnlineShoping.ServiceReference1.SetDataRequest inValue = new OnlineShoping.ServiceReference1.SetDataRequest();
+            inValue.Body = new OnlineShoping.ServiceReference1.SetDataRequestBody();
+            inValue.Body.handle = handle;
+            inValue.Body.tableName = tableName;
+            return ((OnlineShoping.ServiceReference1.WebServiceSoap)(this)).SetDataAsync(inValue);
         }
     }
 }

@@ -305,6 +305,9 @@
     <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.SetAttributeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.SetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ServiceReference1\WebService.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -322,6 +325,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ServiceReference1\WebService.wsdl" />
+    <Content Include="Service References\WebService\OnlineShoping.WebService.SetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\WebService\WebService.disco" />
     <None Include="Service References\WebService\configuration91.svcinfo" />
     <None Include="Service References\WebService\configuration.svcinfo" />

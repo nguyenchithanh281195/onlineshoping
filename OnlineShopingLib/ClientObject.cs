@@ -20,5 +20,10 @@ namespace OnlineShopingLib
         {
             
         }
+
+        public void SetData()
+        {
+            ClientObjectManager.SetData(_handle,this.GetType().Name.ToLower());
+        }
     }
 }

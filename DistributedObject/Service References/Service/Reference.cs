@@ -35,6 +35,13 @@ namespace DistributedObject.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataFromTable", ReplyAction="*")]
         System.Threading.Tasks.Task<DistributedObject.Service.GetDataFromTableResponse> GetDataFromTableAsync(DistributedObject.Service.GetDataFromTableRequest request);
+        
+        // CODEGEN: Generating message contract since element name tableName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetData", ReplyAction="*")]
+        DistributedObject.Service.SetDataResponse SetData(DistributedObject.Service.SetDataRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetData", ReplyAction="*")]
+        System.Threading.Tasks.Task<DistributedObject.Service.SetDataResponse> SetDataAsync(DistributedObject.Service.SetDataRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -235,6 +242,75 @@ namespace DistributedObject.Service {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SetDataRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetData", Namespace="http://tempuri.org/", Order=0)]
+        public DistributedObject.Service.SetDataRequestBody Body;
+        
+        public SetDataRequest() {
+        }
+        
+        public SetDataRequest(DistributedObject.Service.SetDataRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SetDataRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string tableName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string attr;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string value;
+        
+        public SetDataRequestBody() {
+        }
+        
+        public SetDataRequestBody(string tableName, string attr, string value) {
+            this.tableName = tableName;
+            this.attr = attr;
+            this.value = value;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SetDataResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetDataResponse", Namespace="http://tempuri.org/", Order=0)]
+        public DistributedObject.Service.SetDataResponseBody Body;
+        
+        public SetDataResponse() {
+        }
+        
+        public SetDataResponse(DistributedObject.Service.SetDataResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class SetDataResponseBody {
+        
+        public SetDataResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceSoapChannel : DistributedObject.Service.WebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -335,6 +411,34 @@ namespace DistributedObject.Service {
             inValue.Body.tableName = tableName;
             inValue.Body.condition = condition;
             return ((DistributedObject.Service.WebServiceSoap)(this)).GetDataFromTableAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DistributedObject.Service.SetDataResponse DistributedObject.Service.WebServiceSoap.SetData(DistributedObject.Service.SetDataRequest request) {
+            return base.Channel.SetData(request);
+        }
+        
+        public void SetData(string tableName, string attr, string value) {
+            DistributedObject.Service.SetDataRequest inValue = new DistributedObject.Service.SetDataRequest();
+            inValue.Body = new DistributedObject.Service.SetDataRequestBody();
+            inValue.Body.tableName = tableName;
+            inValue.Body.attr = attr;
+            inValue.Body.value = value;
+            DistributedObject.Service.SetDataResponse retVal = ((DistributedObject.Service.WebServiceSoap)(this)).SetData(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DistributedObject.Service.SetDataResponse> DistributedObject.Service.WebServiceSoap.SetDataAsync(DistributedObject.Service.SetDataRequest request) {
+            return base.Channel.SetDataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DistributedObject.Service.SetDataResponse> SetDataAsync(string tableName, string attr, string value) {
+            DistributedObject.Service.SetDataRequest inValue = new DistributedObject.Service.SetDataRequest();
+            inValue.Body = new DistributedObject.Service.SetDataRequestBody();
+            inValue.Body.tableName = tableName;
+            inValue.Body.attr = attr;
+            inValue.Body.value = value;
+            return ((DistributedObject.Service.WebServiceSoap)(this)).SetDataAsync(inValue);
         }
     }
 }

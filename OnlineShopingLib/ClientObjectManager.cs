@@ -10,31 +10,32 @@ namespace OnlineShopingLib
 {
     class ClientObjectManager
     {
-        
-        
+        public static ServiceReference1.WebServiceSoapClient serverObjectManager = new WebServiceSoapClient();
+
         internal static int CreateObject(string v)
         {
-            ServiceReference1.WebServiceSoapClient serverObjectManager = new WebServiceSoapClient();
+            
             return serverObjectManager.RemoteCreateObject(v);
         }
 
         internal static string GetAttribute(int _handle, string v)
         {
-            ServiceReference1.WebServiceSoapClient serverObjectManager = new WebServiceSoapClient();
             return serverObjectManager.GetAttribute(_handle, v);
-            ;
         }
 
         internal static void SetAttribute(int _handle, string v, string value)
         {
-            ServiceReference1.WebServiceSoapClient serverObjectManager = new WebServiceSoapClient();
             serverObjectManager.SetAttribute(_handle, v, value);
         }
 
         public static List<int> GetData(string field, string tableName, string condition)
         {
-            ServiceReference1.WebServiceSoapClient serverObjectManager = new WebServiceSoapClient();
             return serverObjectManager.GetData(field, tableName, condition);
+        }
+
+        public static void SetData(int handle,string tableName)
+        {
+            serverObjectManager.SetData(handle,tableName);
         }
     }
 }

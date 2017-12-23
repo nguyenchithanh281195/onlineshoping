@@ -36,7 +36,15 @@ namespace DistributedObject
                 }
                 else
                 {
-                    properties.Add(name, new Property(name, "string", value));
+                    try
+                    {
+                        Double.Parse(value);
+                        properties.Add(name, new Property(name, "number", value));
+                    }
+                    catch (Exception)
+                    {
+                        properties.Add(name, new Property(name, "string", value));
+                    }
                 }
             }
         }
@@ -70,6 +78,27 @@ namespace DistributedObject
                 s[dataRow.Table.Columns[i].ColumnName]=dataRow[i].ToString();
             }
             return s._handler;
+        }
+
+        public void SetData(string tableName)
+        {
+            string attr="";
+            string value="";
+            foreach (KeyValuePair<string,Property> property in properties)
+            {
+                attr += property.Value.Name + ",";
+                if (property.Value.Type == "string")
+                {
+                    value += "'" + property.Value.Value + "'" + ",";
+                }
+                else
+                {
+                    value +=property.Value.Value + ",";
+                }
+            }
+            attr.Remove(attr.Length-1);
+            value.Remove(value.Length - 1);
+            service.SetData(tableName,attr,value);
         }
     }
 }

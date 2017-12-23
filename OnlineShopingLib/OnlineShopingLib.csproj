@@ -75,6 +75,9 @@
     <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.SetAttributeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.SetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\WebService.wsdl" />
   </ItemGroup>
   <ItemGroup>

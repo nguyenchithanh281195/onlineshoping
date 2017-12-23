@@ -28,5 +28,10 @@ namespace Service.BUS
         {
             return obj.GetDataFromTable(field,tableName,condition);
         }
+
+        public void SetData(string tableName, string attr, string value)
+        {
+            obj.SetDataToTable(tableName, attr, value);
+        }
     }
 }

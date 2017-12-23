@@ -86,6 +86,11 @@ namespace DistributedObject
             return ServerObject.GetDataFromTable(field, tableName, condition);
         }
 
+        [WebMethod]
+        public void SetData(int handle, string tableName)
+        {
+            _objects[handle].SetData(tableName);
+        }
 
     }
 }

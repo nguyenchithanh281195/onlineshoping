@@ -54,5 +54,11 @@ namespace Service
             string result = sw.ToString();
             return result;
         }
+
+        [WebMethod]
+        public void SetData(string tableName, string attr,string value)
+        {
+            bus.SetData(tableName, attr, value);
+        }
     }
 }
