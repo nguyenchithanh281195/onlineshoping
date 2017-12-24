@@ -133,12 +133,11 @@ namespace DistributedObject
 
             Property attrObj;
             string condition = "";
-            if (properties.TryGetValue(attrCondition, out attrObj)){
+            if (properties.TryGetValue(attrCondition, out attrObj))
+            {
                 condition = attrCondition + "=" + attrObj.Value;
                 service.UpdateData(tableName, updateStatement, condition);
             }
-                
-
         }
     }
 }
