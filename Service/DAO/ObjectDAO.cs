@@ -40,10 +40,21 @@ namespace Service.DTO
             return Provider.ExecuteQuery(s);
         }
 
+        public void DeleteFromTable(string tableName, string condition)
+        {
+            string s = String.Format("delete from {0} where {1}", tableName, condition);
+            Provider.ExecuteQuery(s);
+        }
+
         public void SetDataToTable(string tableName,string attr, string value)
         {
             string s = String.Format("insert into {0}({1}) value ({2})", tableName, attr, value);
             Provider.ExecuteQuery(s);
+        }
+
+        public void UpdateData(string tableName, string updateStatement, string condition)
+        {
+            string s = String.Format("update {0} set {1} where {2}", tableName, updateStatement, condition);
         }
     }
 }

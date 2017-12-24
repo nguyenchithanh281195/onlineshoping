@@ -33,5 +33,14 @@ namespace Service.BUS
         {
             obj.SetDataToTable(tableName, attr, value);
         }
+
+        public void DeleteFromTable(string tableName, string condition)
+        {
+            obj.DeleteFromTable(tableName, condition);
+        }
+
+        public void UpdateData(string tableName, string updateStatement, string condition){
+            obj.UpdateData(tableName, updateStatement, condition);
+        }
     }
 }

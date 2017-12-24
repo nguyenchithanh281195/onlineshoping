@@ -100,5 +100,45 @@ namespace DistributedObject
             value.Remove(value.Length - 1);
             service.SetData(tableName,attr,value);
         }
+
+        public void DeleteByAttributeValue(string tableName, string attr)
+        {
+            Property attrObj;
+            if (properties.TryGetValue(attr, out attrObj))
+            {
+                string condition = attr + "=" + attrObj.Value;
+                service.DeleteFromTable(tableName, condition);
+            }
+        }
+
+        public void UpdateData(string tableName, string attrCondition)
+        {
+            string updateStatement = "";
+            foreach (KeyValuePair<string, Property> property in properties)
+            {
+                if (!property.Value.Name.Equals(attrCondition))
+                {
+                    updateStatement += property.Value.Name + "=";
+                    if (property.Value.Type == "string")
+                    {
+                        updateStatement += "'" + property.Value.Value + "'" + ",";
+                    }
+                    else
+                    {
+                        updateStatement += property.Value.Value + ",";
+                    }
+                }
+            }
+            updateStatement.Remove(updateStatement.Length - 1);
+
+            Property attrObj;
+            string condition = "";
+            if (properties.TryGetValue(attrCondition, out attrObj)){
+                condition = attrCondition + "=" + attrObj.Value;
+                service.UpdateData(tableName, updateStatement, condition);
+            }
+                
+
+        }
     }
 }

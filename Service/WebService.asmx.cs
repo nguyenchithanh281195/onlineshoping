@@ -60,5 +60,17 @@ namespace Service
         {
             bus.SetData(tableName, attr, value);
         }
+
+        [WebMethod]
+        public void DeteFromTable(string tableName, string condition) 
+        {
+            bus.DeleteFromTable(tableName,condition);
+        }
+
+        [WebMethod]
+        public void UpdateData(string tableName, string attr, string value, string condition)){
+            bus.UpdateData(tableName, attr, value, condition);
+        }
+
     }
 }
