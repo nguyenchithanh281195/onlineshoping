@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="ClientObject.cs" />
     <Compile Include="ClientObjectManager.cs" />
-    <Compile Include="Manufature.cs" />
+    <Compile Include="Manufacturer.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

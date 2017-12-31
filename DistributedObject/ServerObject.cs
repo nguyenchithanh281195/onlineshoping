@@ -96,8 +96,8 @@ namespace DistributedObject
                     value +=property.Value.Value + ",";
                 }
             }
-            attr.Remove(attr.Length-1);
-            value.Remove(value.Length - 1);
+            attr=attr.Remove(attr.Length-1);
+            value=value.Remove(value.Length - 1);
             service.SetData(tableName,attr,value);
         }
     }

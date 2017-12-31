@@ -11,15 +11,14 @@ namespace OnlineShopingLib
 {
     public class Product : ClientObject
     {
-        private Manufature manufacture;
-        private ProductType productType;
+       
 
         public Product()
         {
-            ClientObjectManager.CreateObject("Product");
+            
         }
 
-        private Product(int handle):base(handle)
+        public Product(int handle):base(handle)
         {
             
         }
@@ -83,47 +82,19 @@ namespace OnlineShopingLib
             }
         }
 
-        public Manufature Manufacture
+        public int Manufacture
         {
-            get
-            {
-                return manufacture;
-            }
-            set
-            {
-                manufacture=value;
-            }
+            get { return Int32.Parse(ClientObjectManager.GetAttribute(_handle, "manufacturer")); }
+            set { ClientObjectManager.SetAttribute(_handle, "manufacturer", value.ToString()); }
         }
 
-        public ProductType ProductType
+        public int ProductType
         {
-            get { return productType; }
-            set { productType = value; }
+            get { return Int32.Parse(ClientObjectManager.GetAttribute(_handle, "producttype"));}
+            set { ClientObjectManager.SetAttribute(_handle, "producttype", value.ToString()); }
         }
 
 
-        public static List<Product> GetData(string field, string condition)
-        {
-            ServiceReference1.WebServiceSoapClient abc=new WebServiceSoapClient();
-            List<Product> obj=new List<Product>();
-            try
-            {
-                
-                List<int> data = ClientObjectManager.GetData(field, "Product", condition);
-
-                for (int i = 0; i < data.Count; i++)
-                {
-                    obj.Add(new Product(data[i]));
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-           
-            return obj;
-        }
-
+        
     }
 }

@@ -15,12 +15,14 @@ namespace Service.DAO
 
         public Provider()
         {
-            _Connect = new SqlConnection(@"Server=tcp:ktpm.database.windows.net,1433;Initial Catalog=KTPM;Persist Security Info=False;User ID=shopingonline;Password=Thanh2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //_Connect = new SqlConnection(@"Server=tcp:ktpm.database.windows.net,1433;Initial Catalog=KTPM;Persist Security Info=False;User ID=shopingonline;Password=Thanh2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            _Connect = new SqlConnection(@"Data Source=DESKTOP-G75VNI8\SQLEXPRESS;Initial Catalog=abc;Integrated Security=True");
         }
 
         public static DataTable ExecuteQuery(string strQuery)
         {
-            _Connect = new SqlConnection(@"Server=tcp:ktpm.database.windows.net,1433;Initial Catalog=KTPM;Persist Security Info=False;User ID=shopingonline;Password=Thanh2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //_Connect = new SqlConnection(@"Server=tcp:ktpm.database.windows.net,1433;Initial Catalog=KTPM;Persist Security Info=False;User ID=shopingonline;Password=Thanh2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            _Connect = new SqlConnection(@"Data Source=DESKTOP-G75VNI8\SQLEXPRESS;Initial Catalog=abc;Integrated Security=True");
             DataTable table = new DataTable();
 
             try
