@@ -1,4 +1,5 @@
-﻿@{
+﻿@model OnlineShoping.Models.ModelListProduct
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -44,35 +45,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{# each items}}
+                        @foreach (var item in Model.Products)
+                        {
                             <tr>
-                                <td hidden>{{this._id}}</td>
-                                <td> <a href="/admin/product/listproduct/{{this._id}}/detail">{{this.product_name}}</a></td>
-                                <td>{{this.price}}</td>
-                                <td hidden>{{this.category_id}}</td>
-                                <td hidden>{{this.publisher_id}}</td>
+                                <td hidden>@item.Id</td>
+                                <td> <a href="/admin/product/listproduct/@item.Id/detail">@item.Name</a></td>
+                                <td>@item.Price</td>
+                                <td hidden>@item.ProductType</td>
+                                <td hidden>@item.Manufacture</td>
                                 <td>
                                     <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg">
-                                        <img src="{{this.product_image}}" class="img-responsive content-bg-img">
+                                        <img src="" class="img-responsive content-bg-img">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
-                                        <a href="/admin/product/listproduct/{{this.id}}/update">
+                                        <a href="/admin/product/listproduct/@item.Id/update">
                                             <button type="button" class="templatemo-blue-button">Update</button>
                                         </a>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
-                                        <a href="/admin/product/listproduct/{{this.id}}/delete"
+                                        <a href="/admin/product/listproduct/@item.Id/delete"
                                            onclick="return confirm('Are you sure you want to delete item which you choose ?')">
                                             <button type="button" class="templatemo-blue-button">Delete</button>
                                         </a>
                                     </div>
                                 </td>
                             </tr>
-                            {{/each}}
+                        }
                         </tbody>
                     </table>
                 </div>

@@ -38,7 +38,7 @@ namespace Service.DTO
 
         public void SetDataToTable(string tableName,string attr, string value)
         {
-            string s = String.Format("insert into {0}({1}) value ({2})", tableName, attr, value);
+            string s = String.Format("insert into {0}({1}) values ({2})", tableName, attr, value);
             Provider.ExecuteQuery(s);
         }
 

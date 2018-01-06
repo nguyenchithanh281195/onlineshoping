@@ -2,15 +2,18 @@
 
 namespace OnlineShopingLib
 {
-    public class Manufature: ClientObject
+    public class Manufacturer: ClientObject
     {
-        public Manufature()
+        public Manufacturer()
         {
             _handle = ClientObjectManager.CreateObject("Manufacture");
         }
         public int Id
         {
-            get { return Int32.Parse(ClientObjectManager.GetAttribute(_handle, "id"));}
+            get
+            {
+                return Int32.Parse(ClientObjectManager.GetAttribute(_handle, "id"));
+            }
             set
             {
                 ClientObjectManager.SetAttribute(_handle,"id",value.ToString());
@@ -28,5 +31,11 @@ namespace OnlineShopingLib
                 ClientObjectManager.SetAttribute(_handle, "name", value);
             }
         }
+
+        public Manufacturer(int idHand) : base(idHand)
+        {
+            
+        }
+
     }
 }

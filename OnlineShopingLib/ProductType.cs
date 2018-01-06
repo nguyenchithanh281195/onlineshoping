@@ -4,6 +4,10 @@ namespace OnlineShopingLib
 {
     public class ProductType: ClientObject
     {
+        public ProductType(int idHand):base(idHand)
+        {
+         
+        }
         public int Id
         {
             get { return Int32.Parse(ClientObjectManager.GetAttribute(_handle, "id")); }
