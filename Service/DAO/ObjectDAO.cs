@@ -9,19 +9,9 @@ namespace Service.DTO
 {
     public class ObjectDAO
     {
-        public DataTable GetManufacture()
-        {
-            return Provider.ExecuteQuery("Select* from Manufacturer");
-        }
-
         internal List<string> GetParameter(string product)
         {
             return null;
-        }
-
-        public DataTable GetAllProducts()
-        {
-            return Provider.ExecuteQuery("Select* from Product");
         }
 
         public DataTable GetDataFromTable(string field, string tableName, string condition)
