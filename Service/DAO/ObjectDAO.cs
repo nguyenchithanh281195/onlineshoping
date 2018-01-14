@@ -21,7 +21,7 @@ namespace Service.DTO
             {
                 field = "*";
             }
-            string s = String.Format("Select {0} from {1} where {2})", field, tableName, condition);
+            string s = String.Format("Select {0} from {1} where {2}", field, tableName, condition);
             if (condition == "")
             {
                 s = String.Format("Select {0} from {1}", field, tableName);
@@ -45,6 +45,7 @@ namespace Service.DTO
         public void UpdateData(string tableName, string updateStatement, string condition)
         {
             string s = String.Format("update {0} set {1} where {2}", tableName, updateStatement, condition);
+            Provider.ExecuteQuery(s);
         }
     }
 }

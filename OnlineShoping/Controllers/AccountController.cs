@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using OnlineShoping.Models;
+using OnlineShopingLib;
+using System.Collections.Generic;
 
 namespace OnlineShoping.Controllers
 {
@@ -57,8 +59,22 @@ namespace OnlineShoping.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            try
+            {
+                // Verification.    
+                if (this.Request.IsAuthenticated)
+                {
+                    return this.RedirectToLocal(returnUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                Console.Write(ex);
+            }
+            // Info.    
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return this.View();
         }
 
         //
@@ -66,29 +82,40 @@ namespace OnlineShoping.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            returnUrl = Request.QueryString["ReturnUrl"];
+            try
             {
-                return View(model);
+                // Verification.    
+                if (ModelState.IsValid)
+                {
+                    // Initialization.    
+                    
+                    var loginInfo = Account.GetData<Account>("",String.Format("username='{0}' and password='{1}'",model.UserName, model.Password)).ToList();
+                    // Verification.    
+                    if (loginInfo != null && loginInfo.Count() > 0)
+                    {
+                        // Initialization.    
+                        var logindetails = loginInfo.First();
+                        // Login In.    
+                        this.SignInUser(logindetails.Id.ToString(), false);
+                        return this.RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        // Setting.    
+                        ModelState.AddModelError("Error", "Invalid username or password.");
+                    }
+                }
             }
-
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            catch (Exception ex)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                // Info    
+                Console.Write(ex);
             }
+            // If we got this far, something failed, redisplay form    
+            return this.View(model);
         }
 
         //
@@ -142,35 +169,64 @@ namespace OnlineShoping.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
+                ModelState.AddModelError("ErrorRegister", "Mật khẩu nhập lại không khớp");
             }
 
-            // If we got this far, something failed, redisplay form
+            List<Account> a = Account.GetData<Account>("username", String.Format("username='{0}'", model.Username));
+            
+            List<AccountType> type = AccountType.GetData<AccountType>("id", "name='Member'");
+            if (a.Count != 0)
+            {
+                ModelState.AddModelError("ErrorRegister", "Tài khoản đã tồn tại");
+            }
+            else
+            {
+                Account acc = new Account();
+                acc.UserName = model.Username;
+                acc.Password = model.Password;
+                acc.Email = model.Email;
+                acc.AccountType = type[0].Id;
+                acc.SetData();
+            }
+
             return View(model);
         }
+
+        //
+        // POST: /Account/Register
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    
+        //            // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+        //            // Send an email with this link
+        //            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        AddErrors(result);
+        //    }
+
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
 
         //
         // GET: /Account/ConfirmEmail
@@ -481,5 +537,46 @@ namespace OnlineShoping.Controllers
             }
         }
         #endregion
+
+        private void SignInUser(string username, bool isPersistent)
+        {
+            // Initialization.    
+            var claims = new List<Claim>();
+            try
+            {
+                
+                // Setting    
+                claims.Add(new Claim(ClaimTypes.Name, username));
+                var claimIdenties = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+                var ctx = Request.GetOwinContext();
+                var authenticationManager = ctx.Authentication;
+                // Sign In.    
+                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, claimIdenties);
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                throw ex;
+            }
+        }
+
+        public ActionResult LogOut()
+        {
+            try
+            {
+                // Setting.    
+                var ctx = Request.GetOwinContext();
+                var authenticationManager = ctx.Authentication;
+                // Sign Out.    
+                authenticationManager.SignOut();
+            }
+            catch (Exception ex)
+            {
+                // Info    
+                throw ex;
+            }
+            // Info.    
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }

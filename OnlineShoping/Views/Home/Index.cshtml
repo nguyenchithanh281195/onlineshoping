@@ -1,31 +1,420 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model OnlineShoping.Models.ModelListProduct
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!-- banner-bottom -->
+<div class="banner-bottom">
+    <script type="text/javascript" src="~/Scripts/script.js"></script>
+    <div class="container">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        @*<div class="col-md-5 wthree_banner_bottom_left">
+                <div class="video-img">
+                    <a class="play-icon popup-with-zoom-anim" href="#small-dialog">
+                        <span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- pop-up-box -->
+                <script src="../../Scripts/jquery.magnific-popup.js" type="text/javascript"></script>
+                <!--//pop-up-box -->
+                <div id="small-dialog" class="mfp-hide">
+                    <iframe src="https://www.youtube.com/embed/ZQa6GUVnbNM"></iframe>
+                </div>
+                <script>
+                    $(document).ready(function() {
+                        $('.popup-with-zoom-anim').magnificPopup({
+                            type: 'inline',
+                            fixedContentPos: false,
+                            fixedBgPos: true,
+                            overflowY: 'auto',
+                            closeBtnInside: true,
+                            preloader: false,
+                            midClick: true,
+                            removalDelay: 300,
+                            mainClass: 'my-mfp-zoom-in'
+                        });
+
+                    });
+                </script>
+            </div>*@
+        <div class="col-md-4 w3ls_mobiles_grid_left">
+            <div class="w3ls_mobiles_grid_left_grid">
+                <h3>Categories</h3>
+                <div class="w3ls_mobiles_grid_left_grid_sub">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title asd">
+                                    <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Hãng sản xuất
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body panel_text">
+                                    <ul>
+                                        @foreach (var man in Model.Manufacturers)
+                                        {
+                                            <li><a style="cursor:pointer" onclick="get_product(get_type_active(),@man.Id,-1,0)">@man.Name</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="w3ls_mobiles_grid_left_grid">
+                <h3>Price</h3>
+                <div class="w3ls_mobiles_grid_left_grid_sub">
+                    <div class="ecommerce_color ecommerce_size">
+                        <ul>
+                            <li><a href="#">Dưới $ 100</a></li>
+                            <li><a href="#">Từ $ 100-500</a></li>
+                            <li><a href="#">Từ $ 1k-10k</a></li>
+                            <li><a href="#">Từ $ 10k-20k</a></li>
+                            <li><a href="#">Trên $20k</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-7 wthree_banner_bottom_right">
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                    @foreach (var item in Model.ProductTypes)
+                    {
+                        var id = "#" + item.Id;
+                        <li class="category" role="presentation"><a href=@id id="home-tab" role="tab" data-toggle="tab" aria-controls="home">@item.Name</a></li>
+                    }
+                </ul>
+                <script>
+                    $('.category:first').addClass('active');
+                </script>
+
+
+                <div id="myTabContent" class="tab-content">
+                    @foreach (var item in Model.ProductTypes)
+                    {
+                        var id = "" + item.Id;
+                        <div role="tabpanel" class="tab-pane fade producttype" id=@id aria-labelledby="home-tab">
+                            <div class="agile_ecommerce_tabs">
+                                @foreach (var product in Model.Products)
+                                {
+                                    if (product.ProductType != @item.Id) { continue; }
+                                    var pid = "#p" + @product.Id;
+                                    <div class="col-md-4 agile_ecommerce_tab_left">
+                                        <div class="hs-wrapper">
+                                            <img src="@product.Image" alt=" " class="img-responsive" />
+                                            <img src="@product.Image" alt=" " class="img-responsive" />
+                                            <img src="@product.Image" alt=" " class="img-responsive" />
+                                            <img src="@product.Image" alt=" " class="img-responsive" />
+                                            <img src="@product.Image" alt=" " class="img-responsive" />
+                                            <img src="@product.Image" alt=" " class="img-responsive" />
+
+                                            <div class="w3_hs_bottom">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-toggle="modal" data-target="@pid"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <h5><a href="/detail/@product.Id">@product.Name</a></h5>
+                                        <div class="simpleCart_shelfItem">
+                                            <p>
+                                                <i class="item_price">@product.Price</i>
+                                            </p>
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="id" value="@product.Id" />
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls_item" value="@product.Name" />
+                                                <input type="hidden" name="amount" value="@product.Price" />
+                                                <button type="submit" class="w3ls-cart">Mua</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="row">
+                                <!-- Title -->
+                                <ol></ol>
+                            </div>
+                            <div><a class="moreproduct" style="cursor:pointer" onclick="get_product(@item.Id,-1,-1,1)">Xem thêm</a></div>
+                        </div>
+                        <script>
+                            var a = @Model.ProductTypes.IndexOf(@item);
+
+                            if (a == 0) {
+                                $('#@item.Id').addClass('active');
+                                $('#@item.Id').addClass('in');
+                            }
+                        </script>
+                    }
+                </div>
+
+            </div>
+        </div>
+        <div class="clearfix"> </div>
     </div>
 </div>
+<!-- //banner-bottom -->
+<!-- modal-video -->
+@foreach (var type in Model.ProductTypes)
+{
+    foreach (var product in Model.Products)
+    {
+        var id = "p" + product.Id;
+        <div class="modal video-modal fade" id="@id" tabindex="-1" role="dialog" aria-labelledby="myModal9">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <section>
+                        <div class="modal-body">
+                            <div class="col-md-5 modal_body_left">
+                                <img src="@product.Image" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="col-md-7 modal_body_right">
+                                <h4>@product.Name</h4>
+                                <h5><i>Mô tả</i></h5>
+                                <p>@product.Description</p>
+                                <h5><i>Thông số kĩ thuật</i></h5>
+                                <p>@product.TechnicalParameter</p>
+                                <div class="rating">
+                                    <div class="rating-left">
+                                        <img src="~/Content/Image/star-.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Content/Image/star-.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Content/Image/star-.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Content/Image/star.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Content/Image/star.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="modal_body_right_cart simpleCart_shelfItem">
+                                    <p>
+                                        <i class="item_price">@product.Price</i>
+                                    </p>
+                                    <form action="#" method="post">
+                                        <input type="hidden" name="id" value="@product.Id" />
+                                        <input type="hidden" name="cmd" value="_cart" />
+                                        <input type="hidden" name="add" value="1" />
+                                        <input type="hidden" name="w3ls_item" value="@product.Name" />
+                                        <input type="hidden" name="amount" value="@product.Price" />
+                                        <button type="submit" class="w3ls-cart">Mua</button>
+                                    </form>
+                                </div>
+
+                                <h5>Color</h5>
+                                <div class="color-quality">
+                                    <ul>
+                                        <li><a href="#"><span></span></a></li>
+                                        <li><a href="#" class="brown"><span></span></a></li>
+                                        <li><a href="#" class="purple"><span></span></a></li>
+                                        <li><a href="#" class="gray"><span></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+}
+
+<!-- //modal-video -->
+<!-- banner-bottom1 -->
+<!-- //special-deals -->
+<!-- new-products -->
+@*<div class="new-products">
+        <div class="container">
+            <h3>Sản phẩm mới</h3>
+            <div class="agileinfo_new_products_grids">
+                {{#each products}}
+                <div class="col-md-3 agileinfo_new_products_grid">
+                    <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+                        <div class="hs-wrapper hs-wrapper1">
+                            <img src="{{product_image}}" alt=" " class="img-responsive" />
+                            <img src="{{product_image}}" alt=" " class="img-responsive" />
+                            <img src="{{product_image}}" alt=" " class="img-responsive" />
+                            <img src="{{product_image}}" alt=" " class="img-responsive" />
+                            <img src="{{product_image}}" alt=" " class="img-responsive" />
+                            <div class="w3_hs_bottom w3_hs_bottom_sub">
+                                <ul>
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#{{_id}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h5><a href="/detail/{{_id}}">{{product_name}}</a></h5>
+                        <div class="simpleCart_shelfItem">
+                            <p><i class="item_price">{{price}}$</i></p>
+                            <form action="#" method="post">
+                                <input type="hidden" name="id" value="{{_id}}">
+                                <input type="hidden" name="cmd" value="_cart">
+                                <input type="hidden" name="add" value="1">
+                                <input type="hidden" name="w3ls_item" value="{{product_name}}">
+                                <input type="hidden" name="amount" value="{{price}}">
+                                <button type="submit" class="w3ls-cart">Mua</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>*@
+
+@foreach (var product in Model.Products)
+{
+    <div class="modal video-modal fade" id="@product.Id" tabindex="-1" role="dialog" aria-labelledby="myModal9">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+                    <div class="modal-body">
+                        <div class="col-md-5 modal_body_left">
+                            <img src="@product.Image" alt="" class="img-responsive" />
+
+                        </div>
+                        <div class="col-md-7 modal_body_right">
+                            <h4>@product.Name</h4>
+                            <h5><i>Mô tả</i></h5>
+                            <p>@product.Description</p>
+                            <h5><i>Thông số kĩ thuật</i></h5>
+                            <p>@product.TechnicalParameter</p>
+                            <div class="rating">
+                                <div class="rating-left">
+                                    <img src="~/Content/Image/star-.png" alt="" class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="~/Content/Image/star-.png" alt="" class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="~/Content/Image/star-.png" alt="" class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="~/Content/Image/star.png" alt="" class="img-responsive" />
+                                </div>
+                                <div class="rating-left">
+                                    <img src="~/Content/Image/star.png" alt="" class="img-responsive" />
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="modal_body_right_cart simpleCart_shelfItem">
+                                <p>
+                                    <i class="item_price">$@product.Price</i>
+                                </p>
+                                <form action="#" method="post">
+                                    <input type="hidden" name="id" value="@product.Id  />
+                                    <input type="hidden" name="cmd" value="_cart" />
+                                    <input type="hidden" name="add" value="1" />
+                                    <input type="hidden" name="w3ls_item" value="@product.Name" />
+                                    <input type="hidden" name="amount" value="@product.Price" />
+                                    <button type="submit" class="w3ls-cart">Mua</button>
+                                </form>
+                            </div>
+
+                            <h5>Color</h5>
+                            <div class="color-quality">
+                                <ul>
+                                    <li><a href="#"><span></span></a></li>
+                                    <li><a href="#" class="brown"><span></span></a></li>
+                                    <li><a href="#" class="purple"><span></span></a></li>
+                                    <li><a href="#" class="gray"><span></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+    </div>
+}
+<!-- //new-products -->
+<!-- top-brands -->
+<div class="top-brands">
+    <div class="container">
+        <h3>Hãng sản xuất</h3>
+        <div class="sliderfig">
+            <ul id="flexiselDemo1">
+                <li>
+                    <img src="~/Content/Image/tb1.jpg" alt="" class="img-responsive" />
+                </li>
+                <li>
+                    <img src="~/Content/Image/tb2.jpg" alt=" " class="img-responsive" />
+                </li>
+                <li>
+                    <img src="~/Content/Image/tb3.jpg" alt=" " class="img-responsive" />
+                </li>
+                <li>
+                    <img src="~/Content/Image/tb4.jpg" alt=" " class="img-responsive" />
+                </li>
+                <li>
+                    <img src="~/Content/Image/tb5.jpg" alt=" " class="img-responsive" />
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            $(window).load(function() {
+                $("#flexiselDemo1").flexisel({
+                    visibleItems: 4,
+                    animationSpeed: 1000,
+                    autoPlay: true,
+                    autoPlaySpeed: 3000,
+                    pauseOnHover: true,
+                    enableResponsiveBreakpoints: true,
+                    responsiveBreakpoints: {
+                        portrait: {
+                            changePoint:480,
+                            visibleItems: 1
+                        },
+                        landscape: {
+                            changePoint:640,
+                            visibleItems:2
+                        },
+                        tablet: {
+                            changePoint:768,
+                            visibleItems: 3
+                        }
+                    }
+                });
+
+            });
+        </script>
+        <script type="text/javascript" src="~/Scripts/jquery.flexisel.js"></script>
+    </div>
+</div>
+<!-- //top-brands -->

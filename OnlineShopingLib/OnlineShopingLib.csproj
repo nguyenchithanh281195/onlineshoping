@@ -42,17 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="AccountType.cs" />
     <Compile Include="ClientObject.cs" />
     <Compile Include="ClientObjectManager.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\WebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Subscribes.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -60,40 +63,46 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.ArrayOfInt.datasource">
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.ArrayOfInt.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.GetAttributeResponse.datasource">
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.DeleteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.GetDataResponse.datasource">
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.GetAttributeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.RemoteCreateObjectResponse.datasource">
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.GetDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.SetAttributeResponse.datasource">
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.RemoteCreateObjectResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\OnlineShopingLib.ServiceReference1.SetDataResponse.datasource">
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.SetAttributeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\WebService.wsdl" />
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.SetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\OnlineShopingLib.WebService.UpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\WebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\WebService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\WebService.disco" />
+    <None Include="Service References\WebService\WebService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\WebService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\WebService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\WebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

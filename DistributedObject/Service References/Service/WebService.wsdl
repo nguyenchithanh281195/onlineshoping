@@ -50,6 +50,29 @@
       <s:element name="SetDataResponse">
         <s:complexType />
       </s:element>
+      <s:element name="DeleteFromTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condition" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFromTableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updateStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condition" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDataResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetAllManufacturerSoapIn">
@@ -76,6 +99,18 @@
   <wsdl:message name="SetDataSoapOut">
     <wsdl:part name="parameters" element="tns:SetDataResponse" />
   </wsdl:message>
+  <wsdl:message name="DeleteFromTableSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFromTable" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFromTableSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFromTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="GetAllManufacturer">
       <wsdl:input message="tns:GetAllManufacturerSoapIn" />
@@ -92,6 +127,14 @@
     <wsdl:operation name="SetData">
       <wsdl:input message="tns:SetDataSoapIn" />
       <wsdl:output message="tns:SetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromTable">
+      <wsdl:input message="tns:DeleteFromTableSoapIn" />
+      <wsdl:output message="tns:DeleteFromTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateData">
+      <wsdl:input message="tns:UpdateDataSoapIn" />
+      <wsdl:output message="tns:UpdateDataSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
@@ -132,6 +175,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteFromTable">
+      <soap:operation soapAction="http://tempuri.org/DeleteFromTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateData">
+      <soap:operation soapAction="http://tempuri.org/UpdateData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -164,6 +225,24 @@
     </wsdl:operation>
     <wsdl:operation name="SetData">
       <soap12:operation soapAction="http://tempuri.org/SetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFromTable">
+      <soap12:operation soapAction="http://tempuri.org/DeleteFromTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateData">
+      <soap12:operation soapAction="http://tempuri.org/UpdateData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShoping", "OnlineShoping\OnlineShoping.csproj", "{28F557C2-35E9-403A-894F-4B95E37C90C6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{45203F44-B721-42E9-9637-7926E6622F85} = {45203F44-B721-42E9-9637-7926E6622F85}
+		{247BF469-CB51-4C99-96D8-BBEA1C31A444} = {247BF469-CB51-4C99-96D8-BBEA1C31A444}
 		{BF2DDAD6-83A4-4479-AE7B-78CD9177B034} = {BF2DDAD6-83A4-4479-AE7B-78CD9177B034}
 	EndProjectSection
 EndProject
@@ -20,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopingLib", "OnlineS
 	ProjectSection(ProjectDependencies) = postProject
 		{45203F44-B721-42E9-9637-7926E6622F85} = {45203F44-B721-42E9-9637-7926E6622F85}
 		{BF2DDAD6-83A4-4479-AE7B-78CD9177B034} = {BF2DDAD6-83A4-4479-AE7B-78CD9177B034}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageCenter", "MessageCenter\MessageCenter.csproj", "{247BF469-CB51-4C99-96D8-BBEA1C31A444}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45203F44-B721-42E9-9637-7926E6622F85} = {45203F44-B721-42E9-9637-7926E6622F85}
 	EndProjectSection
 EndProject
 Global
@@ -44,6 +50,10 @@ Global
 		{7AE3A4BE-A952-4D5B-9F4F-BF3A7F7B45D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AE3A4BE-A952-4D5B-9F4F-BF3A7F7B45D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AE3A4BE-A952-4D5B-9F4F-BF3A7F7B45D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{247BF469-CB51-4C99-96D8-BBEA1C31A444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247BF469-CB51-4C99-96D8-BBEA1C31A444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247BF469-CB51-4C99-96D8-BBEA1C31A444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247BF469-CB51-4C99-96D8-BBEA1C31A444}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

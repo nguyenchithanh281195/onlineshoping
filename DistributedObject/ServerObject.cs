@@ -129,7 +129,7 @@ namespace DistributedObject
                     }
                 }
             }
-            updateStatement.Remove(updateStatement.Length - 1);
+            updateStatement=updateStatement.Remove(updateStatement.Length - 1);
 
             Property attrObj;
             string condition = "";

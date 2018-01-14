@@ -204,6 +204,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="DAO\ManufactureDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,8 +214,10 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ModelAddProduct.cs" />
     <Compile Include="Models\ModelListProduct.cs" />
+    <Compile Include="Models\ModelUpdateProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="RoleProvider\Role.cs" />
+    <Compile Include="Service References\MessageCenter\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -232,9 +235,18 @@
     <Content Include="Content\CustomStyle.css" />
     <Content Include="Content\fasthover.css" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\Image\44.jpg" />
+    <Content Include="Content\Image\45.jpg" />
     <Content Include="Content\Image\arrow.png" />
     <Content Include="Content\Image\img-sp.png" />
     <Content Include="Content\Image\profile-photo.jpg" />
+    <Content Include="Content\Image\star-.png" />
+    <Content Include="Content\Image\star.png" />
+    <Content Include="Content\Image\tb1.jpg" />
+    <Content Include="Content\Image\tb2.jpg" />
+    <Content Include="Content\Image\tb3.jpg" />
+    <Content Include="Content\Image\tb4.jpg" />
+    <Content Include="Content\Image\tb5.jpg" />
     <Content Include="Content\popuo-box.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\templatemo-style.css" />
@@ -279,7 +291,9 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Content\jquery.countdown.css" />
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
     <Content Include="Scripts\jquery.flexisel.js" />
+    <Content Include="Scripts\jquery.magnific-popup.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -291,44 +305,41 @@
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\templatemo-script.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.ArrayOfInt.datasource">
+    <Content Include="Service References\MessageCenter\OnlineShoping.MessageCenter.NotifyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.GetAttributeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.GetDataResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.RemoteCreateObjectResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.SetAttributeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ServiceReference1\OnlineShoping.ServiceReference1.SetDataResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\ServiceReference1\WebService.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\MessageCenter\WebService.disco" />
+    <None Include="Service References\MessageCenter\configuration91.svcinfo" />
+    <None Include="Service References\MessageCenter\configuration.svcinfo" />
+    <None Include="Service References\MessageCenter\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\WebService\OnlineShoping.WebService.GetAllManufacturerResponse.datasource">
+    <Content Include="Service References\WebService\OnlineShoping.WebService.ArrayOfInt.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\WebService\OnlineShoping.WebService.GetAllProductsResponse.datasource">
+    <Content Include="Service References\WebService\OnlineShoping.WebService.DeleteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\WebService\OnlineShoping.WebService.GetDataFromTableResponse.datasource">
+    <Content Include="Service References\WebService\OnlineShoping.WebService.GetAttributeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ServiceReference1\WebService.wsdl" />
+    <Content Include="Service References\WebService\OnlineShoping.WebService.GetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WebService\OnlineShoping.WebService.RemoteCreateObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WebService\OnlineShoping.WebService.SetAttributeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\WebService\OnlineShoping.WebService.SetDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\WebService\OnlineShoping.WebService.UpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\MessageCenter\WebService.wsdl" />
     <None Include="Service References\WebService\WebService.disco" />
     <None Include="Service References\WebService\configuration91.svcinfo" />
     <None Include="Service References\WebService\configuration.svcinfo" />
@@ -350,18 +361,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -377,10 +376,25 @@
     <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Admin\ListProduct.cshtml" />
     <Content Include="Views\Admin\ProductUpdate.cshtml" />
+    <Content Include="Views\Admin\UpdateProduct.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <None Include="Service References\WebService\WebService.wsdl" />
+    <Content Include="Views\Home\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Member\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -394,14 +408,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-    <WCFMetadataStorage Include="Service References\WebService\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\OnlineShopingLib\OnlineShopingLib.csproj">
       <Project>{7ae3a4be-a952-4d5b-9f4f-bf3a7f7b45d6}</Project>
       <Name>OnlineShopingLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MessageCenter\" />
+    <WCFMetadataStorage Include="Service References\WebService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

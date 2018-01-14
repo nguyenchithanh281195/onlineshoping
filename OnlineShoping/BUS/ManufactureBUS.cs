@@ -9,10 +9,6 @@ namespace OnlineShoping.BUS
 {
     public class ManufactureBUS
     {
-        ManufactureDAO dao = new ManufactureDAO();
-        public List<OnlineShopingLib.Manufacturer> GetManufactures()
-        {
-            return dao.GetManufactures();
-        }
+        
     }
 }

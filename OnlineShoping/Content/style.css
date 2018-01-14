@@ -870,7 +870,7 @@ li.w3pages .dropdown-menu > li > a:hover{
   display         : block;
   width           : 18px;
   height          : 18px;
-  background      : url(../images/star-.png);
+  background      : url(~/Content/Image/star-.png);
   background-size : contain;
   opacity         : 0;
   transition      : opacity 0.2s linear;
@@ -1125,7 +1125,7 @@ ul.wmuSliderPagination {
 /*-- //new-products --*/
 /*-- banner-bottom1 --*/
 .agileinfo_banner_bottom1_grid_left{
-	background:url(../images/44.jpg) no-repeat 0px 0px;
+	background:url(/Content/Image/44.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1170,7 +1170,7 @@ ul.wmuSliderPagination {
 	background:url(../Content/Image/img-sp.png) no-repeat 112px -38px;
 }
 .agileinfo_banner_bottom1_grid_right{
-	background:url(../images/45.jpg) no-repeat 0px 0px;
+	background:url(/Content/Image/45.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -5008,4 +5008,54 @@ td.invert-image a img {
 
 .negative_button{
     background: #555;
+}
+
+
+.subcribe_button{
+margin-top:20px;
+background:red;
+border:none;
+color:white;
+padding:10px;
+float:left;
+cursor:pointer;
+}
+
+.bold{
+font-weight:bold;
+font-size:15px;
+}
+
+.subcriber{
+margin-left:10px;
+color:#E8E8E8;
+}
+
+
+.account-popup{
+    margin:auto;
+    width:50%;
+}
+
+.popup-body{
+    padding:50px;
+}
+
+.full{
+    width:100%;
+    
+    
+}
+
+.full:hover{
+    background:#3c43a4;
+    color:red;
+}
+
+.account-button{
+
+}
+
+.text-center{
+    text-align:center;
 }

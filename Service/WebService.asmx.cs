@@ -62,14 +62,14 @@ namespace Service
         }
 
         [WebMethod]
-        public void DeteFromTable(string tableName, string condition) 
+        public void DeleteFromTable(string tableName, string condition) 
         {
             bus.DeleteFromTable(tableName,condition);
         }
 
         [WebMethod]
-        public void UpdateData(string tableName, string attr, string value, string condition)){
-            bus.UpdateData(tableName, attr, value, condition);
+        public void UpdateData(string tableName, string updateStatement, string condition){
+            bus.UpdateData(tableName, updateStatement, condition);
         }
 
     }

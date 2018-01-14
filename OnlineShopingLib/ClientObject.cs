@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 
 namespace OnlineShopingLib
 {
@@ -31,7 +29,6 @@ namespace OnlineShopingLib
             List<T> obj = new List<T>();
             try
             {
-
                 List<int> data = ClientObjectManager.GetData(field, typeof(T).Name, condition);
 
                 
@@ -48,6 +45,21 @@ namespace OnlineShopingLib
             }
 
             return obj;
+        }
+
+        public virtual void Delete()
+        {
+            ClientObjectManager.Delete(_handle, this.GetType().Name,"id");
+        }
+
+        public void Update()
+        {
+            ClientObjectManager.Update(_handle, this.GetType().Name, "id");
+        }
+
+        ~ClientObject()
+        {
+            ClientObjectManager.Destroy(_handle);
         }
     }
 }

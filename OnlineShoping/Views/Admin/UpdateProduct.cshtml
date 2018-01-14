@@ -1,0 +1,101 @@
+﻿@model OnlineShoping.Models.ModelUpdateProduct
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+        </div>
+        <ul class="nav navbar-nav">
+            <a href="/admin/product/listproduct">
+                <button class="active btn btn-lg navbar-btn" style="background-color: #00b1b6">
+                    <span style="color: white;">List Product</span>
+                </button>
+                <!--<li class="active"><a href="/admin/category/listcategory">List Category</a></li>-->
+            </a>
+            <a href="/admin/product/addproduct">
+
+                <button class="btn btn-lg navbar-btn" style="background-color: #ff0072">
+
+                    <span style="color: white;">Add Product</span>
+                </button>
+            </a>
+        </ul>
+    </div>
+</nav>
+<div class="templatemo-content-container">
+    <div class="templatemo-content-widget white-bg">
+        <h2 class="margin-bottom-10">Product Detail</h2>
+        <p>This is detail of product</p>
+        <form action="/admin/updateproductsubmit" class="templatemo-login-form" method="post">
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group">
+                    <label for="inputProductName">Product Name</label>
+                    <input type="hidden" name="product_id" value="@Model.Product1.Id"/>
+                    <input type="text" name="product_name"
+                           value="@Model.Product1.Name"
+                           class="form-control" id="inputProductName" placeholder="..." required>
+                </div>
+                <div class="col-lg-6 col-md-6 form-group">
+                    <label for="inputPrice">Price (USD)</label>
+                    <input type="text" name="product_price" class="form-control"
+                           value="@Model.Product1.Price"
+                           onkeypress='return (event.charCode >=48 && event.charCode<=57)||event.charCode==46'
+                           id="inputPrice" placeholder="..." required>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-12 form-group">
+                    <label class="control-label" for="inputNote1">Description</label>
+                    <textarea class="form-control" value="" id="inputNote1" name="product_description" rows="8" required>@Model.Product1.Description</textarea>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-12 form-group">
+                    <label class="control-label" for="inputNote">Technical Parameter</label>
+                    <textarea class="form-control" value="" id="inputNote" name="product_technical_parameter" rows="10" required>@Model.Product1.TechnicalParameter</textarea>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group">
+                    <label class="control-label templatemo-block">Category of Product</label>
+                    <input type="text"
+                           value="@Model.ProductType1.Name"
+                           class="form-control" id="inputProductName" placeholder="..." disabled>
+                    <input type="hidden" name="product_type" value="@Model.ProductType1.Id"/>
+                </div>
+                <div class="col-lg-6 col-md-6 form-group">
+                    <label class="control-label templatemo-block">Publisher of Product</label>
+                    <input type="text"
+                           value="@Model.Manufacturer1.Name"
+                           class="form-control" id="inputProductName" placeholder="..." disabled>
+                    <input type="hidden" name="product_manufacturer" value="@Model.Manufacturer1.Id"/>
+                </div>
+            </div>
+
+            <div class="form-group text-right">
+                <label style="color: red"></label>
+                <button type="submit" class="templatemo-blue-button">Update</button>
+                <button type="reset" class="templatemo-white-button">Reset</button>
+            </div>
+            <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg" style="min-height: 600px">
+                <div class="row form-group">
+                    <div class="col-lg-6 form-group">
+                        <label class="control-label" for="inputNote">Image</label>
+                        <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg">
+                            <img src="@Model.Product1.Image" class="img-responsive content-bg-img" style="min-height: 380px">
+                            <input type="hidden" value="@Model.Product1.Image" name="product_image"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+
+
+
+

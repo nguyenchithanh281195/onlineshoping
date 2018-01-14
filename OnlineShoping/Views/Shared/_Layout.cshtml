@@ -1,10 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
     <title>Electronic Store</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <meta name="keywords" content="Electronic Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 	SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
@@ -30,10 +31,10 @@
     <!-- //web fonts -->
     <!-- start-smooth-scrolling -->
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
             });
         });
     </script>
@@ -45,110 +46,163 @@
     <script type="text/javascript" src="~/Scripts/script.js"></script>
     <!-- //for bootstrap working -->
     <!-- header modal -->
-    <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
-         aria-hidden="true">
+    @{
+        if (!User.Identity.IsAuthenticated)
+        {
+            <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+                 aria-hidden="true">
 
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Login</h4>
-                </div>
-                <div class="modal-body modal-body-sub">
-                    <div class="row">
-                        <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
-                            <div class="sap_tabs">
-                                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                                    <ul>
-                                        <li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
-                                        <li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
-                                    </ul>
-                                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                        <div class="facts">
-                                            <div class="register">
-                                                <form action="/plugin" method="post">
-                                                    <input name="username" placeholder="User name" type="text" required="">
-                                                    <input name="password" placeholder="Password" type="password" required="">
-                                                    
-                                                    <div class="sign-up">
-
-                                                        <input type="submit" value="Sign in" />
-                                                        <input type="submit" class="resp-tab-item negative_button" aria-describedby="tab_item-2" value="Forgot password" />
-                                                    </div>
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-                                        <div class="facts">
-                                            <div class="register">
-                                                <form action="/signup" method="post">
-                                                    <input placeholder="Username" name="name" type="text" required="required">
-                                                    <input placeholder="Email Address" name="youremail" type="email" required="required">
-                                                    <input style="margin-top: 15px" placeholder="Your name" name="yourname" type="text" required="required">
-                                                    <input placeholder="Password" id="create_password" name="create_password" type="password" required="required" onchange="check_pass();">
-                                                    <input placeholder="Confirm Password" name="confirm_password" id="confirm_password" type="password" required="required" onchange="check_pass();">
-                                                    <p id="notify">{{notice}}</p>
-                                                    <div class="sign-up">
-                                                        <input type="submit" id="create_account" name="create_account" value="Create Account" />
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-2">
-                                        <div class="facts">
-                                            <div class="register">
-                                                <form action="/forgot" method="post">
-                                                    <input placeholder="Username" name="username" type="text" required="required">
-                                                    <p id="notify">{{notice}}</p>
-                                                    <div class="sign-up">
-                                                        <input type="submit" id="create_account" value="Reset password" />
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
-                            <script type="text/javascript">
-                            $(document).ready(function () {
-                                $('#horizontalTab').easyResponsiveTabs({
-                                    type: 'default', //Types: default, vertical, accordion
-                                    width: 'auto', //auto or any width like 600px
-                                    fit: true   // 100% fit in a container
-                                });
-                            });
-                            </script>
-                            <div id="OR" class="hidden-xs">OR</div>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Login</h4>
                         </div>
-                        <div class="col-md-4 modal_body_right modal_body_right1">
-                            <div class="row text-center sign-with">
-                                <div class="col-md-12">
-                                    <h3 class="other-nw">Sign in with</h3>
+                        <div class="modal-body modal-body-sub">
+                            <div class="row">
+                                <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
+                                    <div class="sap_tabs">
+                                        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                                            <ul>
+                                                <li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
+                                                <li class="resp-tab-item" aria-controls="tab_item-1" id="button_signup"><span>Sign up</span></li>
+                                            </ul>
+                                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                                                <div class="facts">
+                                                    <div class="register">
+                                                        @{
+                                                            var url = "/Account/login?ReturnUrl=" + ViewBag.ReturnUrl;
+                                                            var msg = "";
+                                                            try
+                                                            {
+                                                                msg = ViewData.ModelState["Error"].Errors[0].ErrorMessage;
+                                                            }
+                                                            catch (Exception)
+                                                            {
+
+                                                            }
+                                                            <form action=@url method="post">
+                                                                <input name="username" placeholder="User name" type="text" required="">
+                                                                <input name="password" placeholder="Password" type="password" required="">
+                                                                <p style="color: red">@msg</p>
+                                                                <div class="sign-up">
+                                                                    @Html.AntiForgeryToken();
+
+                                                                    <input type="submit" value="Sign in" />
+                                                                    
+                                                                </div>
+                                                            </form>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+                                                <div class="facts">
+                                                    @{
+                                                        var msgregister = "";
+                                                        try
+                                                        {
+                                                            msg = ViewData.ModelState["Error"].Errors[0].ErrorMessage;
+                                                        }
+                                                        catch (Exception) {
+                                                        }
+
+                                                        }
+                                                    <div class="register">
+                                                        <form action="/Account/Register" method="post">
+                                                            <input placeholder="Username" name="Username" type="text" required="required">
+                                                            <input placeholder="Email Address" name="Email" type="email" required="required">                                                           
+                                                            <input placeholder="Password" id="create_password" name="Password" type="password" required="required" onchange="check_pass();">
+                                                            <input placeholder="Confirm Password" name="ConfirmPassword" id="confirm_password" type="password" required="required" onchange="check_pass();">
+                                                            <p id="notify">@msgregister</p>
+                                                            <div class="sign-up">
+                                                                <input type="submit" id="create_account" name="create_account" value="Create Account" />
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-2">
+                                                <div class="facts">
+                                                    <div class="register">
+                                                        <form action="/forgot" method="post">
+                                                            <input placeholder="Username" name="username" type="text" required="required">
+                                                            <p id="notify">{{notice}}</p>
+                                                            <div class="sign-up">
+                                                                <input type="submit" id="create_account" value="Reset password" />
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $('#horizontalTab').easyResponsiveTabs({
+                                                                type: 'default', //Types: default, vertical, accordion
+                                                width: 'auto', //auto or any width like 600px
+                                                fit: true   // 100% fit in a container
+                                            });
+                                                        });
+                                    </script>
+                                    <div id="OR" class="hidden-xs">OR</div>
                                 </div>
-                                <div class="col-md-12">
-                                    <ul class="social">
-                                        <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-                                        <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-                                        <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-                                        <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
-                                    </ul>
+                                <div class="col-md-4 modal_body_right modal_body_right1">
+                                    <div class="row text-center sign-with">
+                                        <div class="col-md-12">
+                                            <h3 class="other-nw">Sign in with</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <ul class="social">
+                                                <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+                                                <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+                                                <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+                                                <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    </div>
+            </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+                                                                     aria-hidden="true">
+
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content account-popup">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                                    &times;
+                                                                                </button>
+                                                                                <h4 class="modal-title" id="myModalLabel" style="text-align:center">Account</h4>
+                                                                            </div>
+                                                                            <div class="popup-body">
+                                                                                @if (User.IsInRole("Admin"))
+                                                                                {
+                                                                                    <a href="/Admin" class="resp-tab-item full text-center" aria-controls="tab_item-0">Admin</a>
+                                                                                }
+                                                                                <a href="/Account/Logout" class="resp-tab-item full text-center" aria-controls="tab_item-1">Logout</a>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            }
+    }
+
     <script>
-    $('#myModal88').modal('{{show}}');
+        $('#myModal88').modal('{{show}}');
     </script>
     <!-- header modal -->
     <!-- header -->
@@ -177,6 +231,12 @@
                     <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
                 </form>
             </div>
+
+
+
+
+
+
         </div>
     </div>
     <!-- //header -->
@@ -194,24 +254,10 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" style="margin:auto;width:70%">
+
                         <li><a href="/">Trang chủ</a></li>
                         <li><a href="about.html">Thông tin</a></li>
-                        <li class="w3pages">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/admin">Trang quản trị</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/users/edit">Chỉnh sửa thông tin cá nhân</a></li>
-                                <li><a href="/users/changepass">Đổi mật khẩu</a></li>
-                                <li><a href="/users/history">Xem lịch sử mua hàng</a></li>
-                                <li><a href="/logout">Đăng xuất</a></li>
-                            </ul>
-                        </li>
 
                     </ul>
                 </div>
@@ -219,7 +265,45 @@
         </div>
     </div>
     <!-- //navigation -->
-    <!--body>
+
+    <div class="agileinfo_banner_bottom1_grids">
+        <div class="col-md-7 agileinfo_banner_bottom1_grid_left">
+            <h3>Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
+            <a>Shop Now</a>
+        </div>
+        <div class="col-md-5 agileinfo_banner_bottom1_grid_right">
+            <h4>hot deal</h4>
+            <div class="timer_wrap">
+                <div id="counter" class="countdownHolder"> <div class="countDays"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">1</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="boxName"><span class="Days">Days</span></span></div><span class="points">:</span><span class="countDiv countDiv0"></span><div class="countHours"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="boxName"><span class="Hours">Hours</span></span></div><span class="points">:</span><span class="countDiv countDiv1"></span><div class="countMinutes"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">1</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">1</span></span><span class="boxName"><span class="Minutes">Minutes</span></span></div><span class="points">:</span><span class="countDiv countDiv2"></span><div class="countSeconds"><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">5</span></span><span class="position"><span class="digit static" style="top: 0px; opacity: 1;">0</span></span><span class="boxName"><span class="Seconds">Seconds</span></span></div></div>
+            </div>
+            <script src="~/Scripts/jquery.countdown.js"></script>
+            <script src="~/Scripts/script.js"></script>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    
+    @{ 
+        if (User.Identity.IsAuthenticated)
+        {
+            
+        <div class="subcribe_button col-md-offset-1" onclick="subcribe()">
+            <span><span class="bold">SUBSCRIBE</span><span class="bold subcriber">0</span></span>
+        </div>
+        <script>
+                is_subcribed();
+        </script>
+        }
+        else
+        {
+            <div class="subcribe_button col-md-offset-1" onclick="show_login_form()">
+                <span><span class="bold">SUBCRIBE</span><span class="bold subcriber">0</span></span>
+            </div>
+        }
+    }
+
+    <script>
+        get_subcriber();
+    </script>
 
 
     @RenderBody()
@@ -300,49 +384,51 @@
     </div>
     <!-- //footer -->
     <script type="text/javascript">
-    $(window).load(function() {
-        $("#flexiselDemo2").flexisel({
-            visibleItems:4,
-            animationSpeed: 1000,
-            autoPlay: true,
-            autoPlaySpeed: 3000,
-            pauseOnHover: true,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-                portrait: {
-                    changePoint:568,
-                    visibleItems: 1
-                },
-                landscape: {
-                    changePoint:667,
-                    visibleItems:2
-                },
-                tablet: {
-                    changePoint:768,
-                    visibleItems: 3
+        $(window).load(function () {
+            $("#flexiselDemo2").flexisel({
+                visibleItems: 4,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 568,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 667,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
                 }
-            }
-        });
+            });
 
-    });
+        });
     </script>
     <script type="text/javascript" src="~/Scripts/jquery.flexisel.js"></script>
     <!-- cart-js -->
     <script src="~/Scripts/minicart.js"></script>
     <script>
-    w3ls.render();
+        w3ls.render();
 
-    w3ls.cart.on('w3sb_checkout', function (evt) {
-        var items, len, i;
+        w3ls.cart.on('w3sb_checkout', function (evt) {
+            var items, len, i;
 
-        if (this.subtotal() > 0) {
-            items = this.items();
+            if (this.subtotal() > 0) {
+                items = this.items();
 
-            for (i = 0, len = items.length; i < len; i++) {
+                for (i = 0, len = items.length; i < len; i++) {
+                }
             }
-        }
-    });
+        });
     </script>
+
+  
     <!-- //cart-js -->
 </body>
 </html>

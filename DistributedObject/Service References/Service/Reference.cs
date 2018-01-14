@@ -42,6 +42,20 @@ namespace DistributedObject.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetData", ReplyAction="*")]
         System.Threading.Tasks.Task<DistributedObject.Service.SetDataResponse> SetDataAsync(DistributedObject.Service.SetDataRequest request);
+        
+        // CODEGEN: Generating message contract since element name tableName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteFromTable", ReplyAction="*")]
+        DistributedObject.Service.DeleteFromTableResponse DeleteFromTable(DistributedObject.Service.DeleteFromTableRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteFromTable", ReplyAction="*")]
+        System.Threading.Tasks.Task<DistributedObject.Service.DeleteFromTableResponse> DeleteFromTableAsync(DistributedObject.Service.DeleteFromTableRequest request);
+        
+        // CODEGEN: Generating message contract since element name tableName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateData", ReplyAction="*")]
+        DistributedObject.Service.UpdateDataResponse UpdateData(DistributedObject.Service.UpdateDataRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateData", ReplyAction="*")]
+        System.Threading.Tasks.Task<DistributedObject.Service.UpdateDataResponse> UpdateDataAsync(DistributedObject.Service.UpdateDataRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -311,6 +325,140 @@ namespace DistributedObject.Service {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteFromTableRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteFromTable", Namespace="http://tempuri.org/", Order=0)]
+        public DistributedObject.Service.DeleteFromTableRequestBody Body;
+        
+        public DeleteFromTableRequest() {
+        }
+        
+        public DeleteFromTableRequest(DistributedObject.Service.DeleteFromTableRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteFromTableRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string tableName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string condition;
+        
+        public DeleteFromTableRequestBody() {
+        }
+        
+        public DeleteFromTableRequestBody(string tableName, string condition) {
+            this.tableName = tableName;
+            this.condition = condition;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteFromTableResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteFromTableResponse", Namespace="http://tempuri.org/", Order=0)]
+        public DistributedObject.Service.DeleteFromTableResponseBody Body;
+        
+        public DeleteFromTableResponse() {
+        }
+        
+        public DeleteFromTableResponse(DistributedObject.Service.DeleteFromTableResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class DeleteFromTableResponseBody {
+        
+        public DeleteFromTableResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateDataRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateData", Namespace="http://tempuri.org/", Order=0)]
+        public DistributedObject.Service.UpdateDataRequestBody Body;
+        
+        public UpdateDataRequest() {
+        }
+        
+        public UpdateDataRequest(DistributedObject.Service.UpdateDataRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateDataRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string tableName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string updateStatement;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string condition;
+        
+        public UpdateDataRequestBody() {
+        }
+        
+        public UpdateDataRequestBody(string tableName, string updateStatement, string condition) {
+            this.tableName = tableName;
+            this.updateStatement = updateStatement;
+            this.condition = condition;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateDataResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateDataResponse", Namespace="http://tempuri.org/", Order=0)]
+        public DistributedObject.Service.UpdateDataResponseBody Body;
+        
+        public UpdateDataResponse() {
+        }
+        
+        public UpdateDataResponse(DistributedObject.Service.UpdateDataResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateDataResponseBody {
+        
+        public UpdateDataResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceSoapChannel : DistributedObject.Service.WebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -439,6 +587,60 @@ namespace DistributedObject.Service {
             inValue.Body.attr = attr;
             inValue.Body.value = value;
             return ((DistributedObject.Service.WebServiceSoap)(this)).SetDataAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DistributedObject.Service.DeleteFromTableResponse DistributedObject.Service.WebServiceSoap.DeleteFromTable(DistributedObject.Service.DeleteFromTableRequest request) {
+            return base.Channel.DeleteFromTable(request);
+        }
+        
+        public void DeleteFromTable(string tableName, string condition) {
+            DistributedObject.Service.DeleteFromTableRequest inValue = new DistributedObject.Service.DeleteFromTableRequest();
+            inValue.Body = new DistributedObject.Service.DeleteFromTableRequestBody();
+            inValue.Body.tableName = tableName;
+            inValue.Body.condition = condition;
+            DistributedObject.Service.DeleteFromTableResponse retVal = ((DistributedObject.Service.WebServiceSoap)(this)).DeleteFromTable(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DistributedObject.Service.DeleteFromTableResponse> DistributedObject.Service.WebServiceSoap.DeleteFromTableAsync(DistributedObject.Service.DeleteFromTableRequest request) {
+            return base.Channel.DeleteFromTableAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DistributedObject.Service.DeleteFromTableResponse> DeleteFromTableAsync(string tableName, string condition) {
+            DistributedObject.Service.DeleteFromTableRequest inValue = new DistributedObject.Service.DeleteFromTableRequest();
+            inValue.Body = new DistributedObject.Service.DeleteFromTableRequestBody();
+            inValue.Body.tableName = tableName;
+            inValue.Body.condition = condition;
+            return ((DistributedObject.Service.WebServiceSoap)(this)).DeleteFromTableAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        DistributedObject.Service.UpdateDataResponse DistributedObject.Service.WebServiceSoap.UpdateData(DistributedObject.Service.UpdateDataRequest request) {
+            return base.Channel.UpdateData(request);
+        }
+        
+        public void UpdateData(string tableName, string updateStatement, string condition) {
+            DistributedObject.Service.UpdateDataRequest inValue = new DistributedObject.Service.UpdateDataRequest();
+            inValue.Body = new DistributedObject.Service.UpdateDataRequestBody();
+            inValue.Body.tableName = tableName;
+            inValue.Body.updateStatement = updateStatement;
+            inValue.Body.condition = condition;
+            DistributedObject.Service.UpdateDataResponse retVal = ((DistributedObject.Service.WebServiceSoap)(this)).UpdateData(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<DistributedObject.Service.UpdateDataResponse> DistributedObject.Service.WebServiceSoap.UpdateDataAsync(DistributedObject.Service.UpdateDataRequest request) {
+            return base.Channel.UpdateDataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<DistributedObject.Service.UpdateDataResponse> UpdateDataAsync(string tableName, string updateStatement, string condition) {
+            DistributedObject.Service.UpdateDataRequest inValue = new DistributedObject.Service.UpdateDataRequest();
+            inValue.Body = new DistributedObject.Service.UpdateDataRequestBody();
+            inValue.Body.tableName = tableName;
+            inValue.Body.updateStatement = updateStatement;
+            inValue.Body.condition = condition;
+            return ((DistributedObject.Service.WebServiceSoap)(this)).UpdateDataAsync(inValue);
         }
     }
 }

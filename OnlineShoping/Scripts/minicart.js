@@ -1903,7 +1903,7 @@
 
         parent: (typeof document !== 'undefined') ? document.body : null,
 
-        action: '/users/checkout',
+        action: '/Home/Checkout',
 
         target: '',
 

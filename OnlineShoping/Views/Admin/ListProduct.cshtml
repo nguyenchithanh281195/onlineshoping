@@ -55,19 +55,19 @@
                                 <td hidden>@item.Manufacture</td>
                                 <td>
                                     <div class="templatemo-content-widget white-bg col-1 templatemo-position-relative templatemo-content-img-bg">
-                                        <img src="" class="img-responsive content-bg-img">
+                                        <img src="@item.Image" class="img-responsive content-bg-img">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
-                                        <a href="/admin/product/listproduct/@item.Id/update">
+                                        <a href="/admin/updateproduct?@item.Id">
                                             <button type="button" class="templatemo-blue-button">Update</button>
                                         </a>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
-                                        <a href="/admin/product/listproduct/@item.Id/delete"
+                                        <a href="/admin/deleteproduct?@item.Id"
                                            onclick="return confirm('Are you sure you want to delete item which you choose ?')">
                                             <button type="button" class="templatemo-blue-button">Delete</button>
                                         </a>

@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OnlineShopingLib.ServiceReference1;
 
 namespace OnlineShopingLib
 {
@@ -31,6 +30,18 @@ namespace OnlineShopingLib
             set
             {
                 ClientObjectManager.SetAttribute(_handle, "id", value.ToString());
+            }
+        }
+
+        public string Image
+        {
+            get
+            {
+                return ClientObjectManager.GetAttribute(_handle, "image");
+            }
+            set
+            {
+                ClientObjectManager.SetAttribute(_handle, "image", value);
             }
         }
 
@@ -62,11 +73,11 @@ namespace OnlineShopingLib
         {
             get
             {
-                return ClientObjectManager.GetAttribute(_handle, "technicalparameter");
+                return ClientObjectManager.GetAttribute(_handle, "technical_parameters");
             }
             set
             {
-                ClientObjectManager.SetAttribute(_handle, "technicalparameter", value);
+                ClientObjectManager.SetAttribute(_handle, "technical_parameters", value);
             }
         }
 
